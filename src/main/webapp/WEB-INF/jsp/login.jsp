@@ -25,6 +25,7 @@
 </head>
 <body>
 <div class="container">
+    <form action="<%=contextPath%>/user/userLogin.do" method="post">
     <div class="form row">
         <div class="form-horizontal col-md-offset-3" id="login_form">
             <h3 class="form-title">用户登录</h3>
@@ -43,11 +44,12 @@
                     </label>
                 </div>
                 <div class="form-group col-md-offset-9">
-                    <button type="submit" class="btn btn-success pull-right" name="submit">登录</button>
+                    <input type="submit" class="btn btn-success pull-right" name="submit">登录</input>
                 </div>
             </div>
         </div>
     </div>
+    </form>
 </div>
 
 </body>

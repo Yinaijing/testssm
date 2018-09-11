@@ -29,7 +29,7 @@ public class UserController {
     IUserService iUserService;
     @RequestMapping("login")
     public String login(){
-        return "regist";
+        return "login";
     }
     @RequestMapping("showAllUser")
     @ResponseBody
@@ -61,7 +61,7 @@ public class UserController {
         return "regist";
     }
 
-    @RequestMapping("userLogin")
+    @RequestMapping(value = "userLogin", method = RequestMethod.POST)
     public String userLogin(Model model, User user) {
         User checkUser = iUserService.getUserbykey(user.getUsername());
         String msg;
@@ -72,7 +72,7 @@ public class UserController {
         }
         String password = checkUser.getPsword();
         if (MD5.md5Password(user.getPsword()).equals(password)) {
-            return "index";
+            return "showuser";
         }
         msg = "密码错误，请重新输入密码！！！";
         model.addAttribute("msg", msg);
